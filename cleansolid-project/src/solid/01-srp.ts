@@ -14,7 +14,7 @@ class UserBloc {
     }
     
     notifyUser() {
-        this.mailer.sendEmail('zamanangon@espe.edu.ec', 'notification-template');
+        this.mailer.sendEmail('zamanangon@espe.edu.ec', 'waaaaaaaaaaaaaa');
         // Simula el envío de notificaciones
     }
     loadUser( id: number ) {
