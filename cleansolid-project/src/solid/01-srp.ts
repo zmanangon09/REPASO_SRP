@@ -57,7 +57,10 @@ class Mailer {
 
 const subscriptionBloc = new SubscriptionBloc();
 const userService = new UserService();
+const mailer = new Mailer();
+const userBloc = new UserBloc( mailer, userService );
 
+userBloc.notifyUser();
 userService.loadUser(10);
 userService.saveUser({ id: 10, name: 'Fernando' });
 subscriptionBloc.onAddSubscription(1234);
