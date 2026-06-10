@@ -5,12 +5,27 @@ interface User {
 
 // Esta clase viola el Principio de Responsabilidad Única (SRP)
 class UserBloc {
+    private mailer: Mailer;
+    private userService: UserService;
 
+    constructor( mailer: Mailer, userService: UserService ) {
+        this.mailer = mailer;
+        this.userService = userService;
+    }
     
     notifyUser() {
+        this.mailer.sendEmail('zamanangon@espe.edu.ec', 'notification-template');
         // Simula el envío de notificaciones
-        console.log('Enviando correo a los usuarios');
     }
+    loadUser( id: number ) {
+        // Simula la carga de un usuario
+        this.userService.loadUser(id);
+    }
+    saveUser( user: User ) {
+        // Simula el guardado en base de datos
+        this.userService.saveUser(user);
+    }
+
 
 
 }
@@ -39,6 +54,7 @@ class Mailer {
         console.log('Enviando correo a:', email, 'con template:', template);
     }
 }
+
 const subscriptionBloc = new SubscriptionBloc();
 const userService = new UserService();
 
