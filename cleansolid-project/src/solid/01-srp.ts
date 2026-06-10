@@ -34,10 +34,14 @@ class UserService {
 
 }
 
+class Mailer {
+    sendEmail( email: string, template: string ) {
+        console.log('Enviando correo a:', email, 'con template:', template);
+    }
+}
 const subscriptionBloc = new SubscriptionBloc();
-const userBloc = new UserBloc();
+const userService = new UserService();
 
-userBloc.loadUser(10);
-userBloc.saveUser({ id: 10, name: 'Fernando' });
-userBloc.notifyUser();
+userService.loadUser(10);
+userService.saveUser({ id: 10, name: 'Fernando' });
 subscriptionBloc.onAddSubscription(1234);
